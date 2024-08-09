@@ -8,7 +8,7 @@ https://github.com/wyx2685/v2board/
 ![image](https://github.com/vlesstop/xiaoV2b/assets/48223192/1f00a9a1-79f5-4379-9758-6f9527f67e1f)
 
 ## 安装完成后登录宝塔，选择安装如下
-☑️ Nginx 1.2.2
+☑️ Nginx 1.21.4
 ☑️ MySQL 5.7
 ☑️ PHP 8.1
 ☑️ phpmyadmin-5.2
@@ -86,6 +86,7 @@ try_files $uri $uri/ /index.php$is_args$query_string;
 
 location @backend {
 proxy_pass http://127.0.0.1:6600;
+proxy_set_header Host            $http_host;
 }
 
 location ~ .*\.(js|css)?$
