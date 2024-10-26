@@ -85,6 +85,7 @@ try_files $uri $uri/ /index.php$is_args$query_string;
 }
 
 location @backend {
+proxy_set_header Host $http_host;
 proxy_pass http://127.0.0.1:6600;
 }
 
